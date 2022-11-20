@@ -2,6 +2,9 @@
 
 namespace UmplereDreptunghi
 {
+    /// <summary>
+    /// Clasa ce va contine datele unui dreptunghi.
+    /// </summary>
     public class Dreptunghi
     {
         public Point Origine { set; get; }
