@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace UmplereDreptunghi
@@ -28,14 +29,30 @@ namespace UmplereDreptunghi
             RefreshGraph();
         }
 
-        public static void ClearGraph()
+        static void ClearGraph()
         {
             _graphics.Clear(_backgroundColor);
         }
 
-        public static void RefreshGraph()
+        static void RefreshGraph()
         {
             _display.Image = _bitmap;
+        }
+
+        public static void Draw()
+        {
+            var mockupData = new { x = 10, y = 10, w = 250, h = 300, ext = Color.Red, interior = Color.Blue };
+
+            Dreptunghi dreptunghi = new Dreptunghi
+                (
+                new PointF(mockupData.x, mockupData.y),
+                mockupData.w,
+                mockupData.h,
+                mockupData.ext,
+                mockupData.interior
+                );
+
+            dreptunghi.DesenDreptughi(_graphics);
         }
     }
 }

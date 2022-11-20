@@ -7,11 +7,11 @@ namespace UmplereDreptunghi
     /// </summary>
     public class Dreptunghi
     {
-        PointF Origine { set; get; }
-        int Lungime { set; get; }
-        int Latime { set; get; }
-        Color CuloareExterior { set; get; }
-        Color CuloareInterior { set; get; }
+        static PointF Origine { set; get; }
+        static int Lungime { set; get; }
+        static int Latime { set; get; }
+        static Color CuloareExterior { set; get; }
+        static Color CuloareInterior { set; get; }
 
         public Dreptunghi(PointF origine, int lungime, int latime, Color culoareExterior, Color culoareInterior)
         {
@@ -35,10 +35,17 @@ namespace UmplereDreptunghi
         }
 
         void DesenContur(Graphics graphics, Rectangle rectangle) =>
-            graphics.DrawRectangle(new Pen(CuloareExterior), rectangle);
+            graphics.DrawRectangle(new Pen(CuloareExterior, 3), rectangle);
 
         void UmplereContur(Graphics graphics, Rectangle rectangle) =>
-            graphics.FillRectangle(new SolidBrush(CuloareInterior), rectangle);
+            graphics.FillRectangle(new SolidBrush(CuloareInterior),
+                                   new Rectangle
+                                   {
+                                       X = rectangle.X + 1,
+                                       Y = rectangle.Y + 1,
+                                       Height = rectangle.Height - 1,
+                                       Width = rectangle.Width - 1
+                                   });
 
     }
 }
