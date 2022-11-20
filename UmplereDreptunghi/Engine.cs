@@ -5,20 +5,37 @@ namespace UmplereDreptunghi
 {
     public static class Engine
     {
-        static PictureBox display { get; set; }
-        static Graphics grp { get; set; }
-        static Bitmap bmp { get; set; }
-        static PointF center { get; set; }
-        static int ResX, ResY;
+        static PictureBox _display;
+        static Graphics _graphics;
+        static Bitmap _bitmap;
+        static PointF _center;
+        static Color _backgroundColor = Color.Beige;
+        static int _resX, _resY;
 
+        /// <summary>
+        /// Aceasta metoda este reapelata de fiecare data cand 
+        /// </summary>
+        /// <param name="pictureBox"></param>
         public static void InitGraph(PictureBox pictureBox)
         {
-            display = pictureBox;
-            ResX = pictureBox.Width;
-            ResY = pictureBox.Height;
-            bmp = new Bitmap(ResX, ResY);
-            grp = Graphics.FromImage(bmp);
-            center = new PointF(ResX / 2, ResY / 2);
+            _display = pictureBox;
+            _resX = pictureBox.Width;
+            _resY = pictureBox.Height;
+            _bitmap = new Bitmap(_resX, _resY);
+            _graphics = Graphics.FromImage(_bitmap);
+            _center = new PointF(_resX / 2, _resY / 2);
+            ClearGraph();
+            RefreshGraph();
+        }
+
+        public static void ClearGraph()
+        {
+            _graphics.Clear(_backgroundColor);
+        }
+
+        public static void RefreshGraph()
+        {
+            _display.Image = _bitmap;
         }
     }
 }
