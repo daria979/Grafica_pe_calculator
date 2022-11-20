@@ -12,6 +12,7 @@ namespace UmplereDreptunghi
         static PointF _center;
         static Color _backgroundColor = Color.Beige;
         static int _resX, _resY;
+        static Dreptunghi _dreptunghi;
 
         /// <summary>
         /// Aceasta metoda este reapelata de fiecare data cand 
@@ -42,20 +43,33 @@ namespace UmplereDreptunghi
             _display.Image = _bitmap;
         }
 
+        public static void Draw(Dreptunghi dreptunghi)
+        {
+            ClearGraph();
+            RefreshGraph();
+            _dreptunghi= dreptunghi;
+            dreptunghi.DesenDreptughi(_graphics);
+        }
+
         public static void Draw()
         {
-            var mockupData = new { x = 10, y = 10, w = 250, h = 300, ext = Color.Red, interior = Color.Blue };
+            ClearGraph();
+            RefreshGraph();
+            _dreptunghi.DesenDreptughi(_graphics);
+        }
 
-            Dreptunghi dreptunghi = new Dreptunghi
-                (
-                new PointF(mockupData.x, mockupData.y),
-                mockupData.w,
-                mockupData.h,
-                mockupData.ext,
-                mockupData.interior
-                );
+        public static void PopulateWithColors(ComboBox contour, ComboBox fill)
+        {
+            KnownColor[] colors = (KnownColor[])Enum.GetValues(typeof(KnownColor));
 
-            dreptunghi.DesenDreptughi(_graphics);
+            foreach (var color in colors)
+            {
+                contour.Items.Add(Color.FromKnownColor(color));
+                fill.Items.Add(Color.FromKnownColor(color));
+            }
+
+            fill.SelectedItem = Color.Black;
+            contour.SelectedItem = Color.Black;
         }
     }
 }

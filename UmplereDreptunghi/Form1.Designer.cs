@@ -41,12 +41,12 @@
             this.inputWidth = new System.Windows.Forms.NumericUpDown();
             this.inputHeight = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.listFill = new System.Windows.Forms.ComboBox();
+            this.listContour = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.listContour = new System.Windows.Forms.ComboBox();
-            this.listFill = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputY)).BeginInit();
@@ -61,7 +61,7 @@
             // 
             this.canvas.Location = new System.Drawing.Point(12, 12);
             this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(789, 637);
+            this.canvas.Size = new System.Drawing.Size(870, 630);
             this.canvas.TabIndex = 0;
             this.canvas.TabStop = false;
             // 
@@ -69,9 +69,19 @@
             // 
             this.inputX.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputX.Location = new System.Drawing.Point(7, 84);
+            this.inputX.Maximum = new decimal(new int[] {
+            870,
+            0,
+            0,
+            0});
             this.inputX.Name = "inputX";
             this.inputX.Size = new System.Drawing.Size(208, 29);
             this.inputX.TabIndex = 1;
+            this.inputX.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // label1
             // 
@@ -97,10 +107,19 @@
             // 
             this.inputY.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputY.Location = new System.Drawing.Point(7, 152);
+            this.inputY.Maximum = new decimal(new int[] {
+            630,
+            0,
+            0,
+            0});
             this.inputY.Name = "inputY";
             this.inputY.Size = new System.Drawing.Size(208, 29);
             this.inputY.TabIndex = 3;
-            this.inputY.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.inputY.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // panel1
             // 
@@ -110,7 +129,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.inputX);
             this.panel1.Controls.Add(this.inputY);
-            this.panel1.Location = new System.Drawing.Point(807, 12);
+            this.panel1.Location = new System.Drawing.Point(898, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 192);
             this.panel1.TabIndex = 5;
@@ -132,7 +151,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.inputWidth);
             this.panel2.Controls.Add(this.inputHeight);
-            this.panel2.Location = new System.Drawing.Point(807, 210);
+            this.panel2.Location = new System.Drawing.Point(898, 210);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(225, 144);
             this.panel2.TabIndex = 5;
@@ -161,18 +180,37 @@
             // 
             this.inputWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputWidth.Location = new System.Drawing.Point(7, 35);
+            this.inputWidth.Maximum = new decimal(new int[] {
+            870,
+            0,
+            0,
+            0});
             this.inputWidth.Name = "inputWidth";
             this.inputWidth.Size = new System.Drawing.Size(208, 29);
             this.inputWidth.TabIndex = 1;
+            this.inputWidth.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // inputHeight
             // 
             this.inputHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputHeight.Location = new System.Drawing.Point(7, 103);
+            this.inputHeight.Maximum = new decimal(new int[] {
+            630,
+            0,
+            0,
+            0});
             this.inputHeight.Name = "inputHeight";
             this.inputHeight.Size = new System.Drawing.Size(208, 29);
             this.inputHeight.TabIndex = 3;
-            this.inputHeight.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.inputHeight.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // panel3
             // 
@@ -182,10 +220,28 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(807, 360);
+            this.panel3.Location = new System.Drawing.Point(898, 360);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(225, 192);
             this.panel3.TabIndex = 5;
+            // 
+            // listFill
+            // 
+            this.listFill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listFill.FormattingEnabled = true;
+            this.listFill.Location = new System.Drawing.Point(7, 152);
+            this.listFill.Name = "listFill";
+            this.listFill.Size = new System.Drawing.Size(208, 32);
+            this.listFill.TabIndex = 6;
+            // 
+            // listContour
+            // 
+            this.listContour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listContour.FormattingEnabled = true;
+            this.listContour.Location = new System.Drawing.Point(7, 84);
+            this.listContour.Name = "listContour";
+            this.listContour.Size = new System.Drawing.Size(208, 32);
+            this.listContour.TabIndex = 6;
             // 
             // label4
             // 
@@ -220,45 +276,20 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(836, 583);
+            this.button1.Location = new System.Drawing.Point(927, 583);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 43);
             this.button1.TabIndex = 6;
             this.button1.Text = "Deseneaza";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // listContour
-            // 
-            this.listContour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listContour.FormattingEnabled = true;
-            this.listContour.Items.AddRange(new object[] {
-            "rosu",
-            "negruy",
-            "verder"});
-            this.listContour.Location = new System.Drawing.Point(7, 84);
-            this.listContour.Name = "listContour";
-            this.listContour.Size = new System.Drawing.Size(121, 32);
-            this.listContour.TabIndex = 6;
-            // 
-            // listFill
-            // 
-            this.listFill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listFill.FormattingEnabled = true;
-            this.listFill.Items.AddRange(new object[] {
-            "rosu",
-            "negruy",
-            "verder"});
-            this.listFill.Location = new System.Drawing.Point(7, 152);
-            this.listFill.Name = "listFill";
-            this.listFill.Size = new System.Drawing.Size(121, 32);
-            this.listFill.TabIndex = 6;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 661);
+            this.ClientSize = new System.Drawing.Size(1135, 651);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
