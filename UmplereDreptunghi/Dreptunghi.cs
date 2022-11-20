@@ -7,13 +7,13 @@ namespace UmplereDreptunghi
     /// </summary>
     public class Dreptunghi
     {
-        public Point Origine { set; get; }
-        public float Lungime { set; get; }
-        public float Latime { set; get; }
+        public PointF Origine { set; get; }
+        public int Lungime { set; get; }
+        public int Latime { set; get; }
         public Color CuloareExterior { set; get; }
         public Color CuloareInterior { set; get; }
 
-        public Dreptunghi(Point origine, float lungime, float latime, Color culoareExterior, Color culoareInterior)
+        public Dreptunghi(PointF origine, int lungime, int latime, Color culoareExterior, Color culoareInterior)
         {
             Origine = origine;
             Lungime = lungime;

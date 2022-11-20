@@ -28,31 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.canvas = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // canvas
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(700, 630);
-            this.panel1.TabIndex = 0;
+            this.canvas.Location = new System.Drawing.Point(12, 12);
+            this.canvas.Name = "canvas";
+            this.canvas.Size = new System.Drawing.Size(789, 637);
+            this.canvas.TabIndex = 0;
+            this.canvas.TabStop = false;
             // 
             // Form1
             // 
+            this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.canvas);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox canvas;
     }
 }
 

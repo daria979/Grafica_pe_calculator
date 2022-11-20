@@ -15,7 +15,12 @@ namespace UmplereDreptunghi
         public Form1()
         {
             InitializeComponent();
-            Engine.Draw();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Engine.InitGraph(canvas);
+
         }
     }
 }
