@@ -34,6 +34,9 @@ namespace UmplereDreptunghi
             _graphics.Clear(_backgroundColor);
         }
 
+        /// <summary>
+        /// Metoda aceasta reface imaginea la reinitializare.
+        /// </summary>
         static void RefreshGraph()
         {
             _display.Image = _bitmap;
