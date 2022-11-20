@@ -22,5 +22,10 @@ namespace UmplereDreptunghi
             Engine.InitGraph(canvas);
             Engine.Draw();
         }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
