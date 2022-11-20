@@ -15,6 +15,7 @@ namespace UmplereDreptunghi
         public Form1()
         {
             InitializeComponent();
+            Engine.Draw();
         }
     }
 }
