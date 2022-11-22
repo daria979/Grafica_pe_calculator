@@ -56,6 +56,10 @@ namespace UmplereDreptunghi
             contour.SelectedItem = Color.Black;
         }
 
+        /// <summary>
+        /// Aceasta metoda apeleaza metoda de conturare a <paramref name="dreptunghi"/>-ului.
+        /// </summary>
+        /// <param name="dreptunghi"></param>
         public static void DrawContour(Dreptunghi dreptunghi)
         {
             _dreptunghi = new Dreptunghi(dreptunghi);
@@ -63,11 +67,15 @@ namespace UmplereDreptunghi
             _dreptunghi.DesenContur(_graphics);
         }
 
+        /// <summary>
+        /// Aceasta metoda se 
+        /// </summary>
+        /// <param name="dreptunghi"></param>
+        /// <returns></returns>
         public static bool FillContour(Dreptunghi dreptunghi)
         {
             var drpt = new Dreptunghi(_dreptunghi);
-            if (!dreptunghi.Origine.Equals(drpt.Origine) || dreptunghi.Latime != drpt.Latime || dreptunghi.Lungime != drpt.Lungime || dreptunghi.CuloareExterior != drpt.CuloareExterior
-                || dreptunghi.CuloareInterior != drpt.CuloareInterior)
+            if(!dreptunghi.Equals(drpt))
             {
                 FullCanvasClear();
                 return false;

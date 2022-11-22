@@ -24,9 +24,9 @@ namespace UmplereDreptunghi
 
         public Dreptunghi(Dreptunghi dreptunghi)
         {
-            Origine= dreptunghi.Origine;
-            Lungime= dreptunghi.Lungime;
-            Latime= dreptunghi.Latime;
+            Origine = dreptunghi.Origine;
+            Lungime = dreptunghi.Lungime;
+            Latime = dreptunghi.Latime;
             CuloareExterior = dreptunghi.CuloareExterior;
             CuloareInterior = dreptunghi.CuloareInterior;
         }
@@ -56,6 +56,10 @@ namespace UmplereDreptunghi
                                        Width = rectangle.Width - 1
                                    });
 
+        /// <summary>
+        /// Aceasta metoda genereaza conturul dreptunghiului.
+        /// </summary>
+        /// <param name="graphics"></param>
         public void DesenContur(Graphics graphics)
         {
             Rectangle dreptunghi = new Rectangle((int)Origine.X, (int)Origine.Y, Lungime, Latime);
@@ -63,6 +67,10 @@ namespace UmplereDreptunghi
             graphics.DrawRectangle(new Pen(CuloareExterior, 3), dreptunghi);
         }
 
+        /// <summary>
+        /// Aceasta metoda umple conturul dreptunghiului.
+        /// </summary>
+        /// <param name="graphics"></param>
         public void UmplereContur(Graphics graphics)
         {
             Rectangle rectangle = new Rectangle((int)Origine.X, (int)Origine.Y, Lungime, Latime);
@@ -77,5 +85,20 @@ namespace UmplereDreptunghi
                                    });
         }
 
+        /// <summary>
+        /// Aceasta metoda verifica egalitate intre doua Dreptunghiuri bazandu-se pe Origine, Lungime si Latime.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            var a = (obj is Dreptunghi dreptunghi) &&
+                (dreptunghi.Origine == Origine &&
+                dreptunghi.Lungime == Lungime &&
+                dreptunghi.Latime == Latime
+                );
+
+            return a;
+        }
     }
 }
