@@ -46,7 +46,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_fill = new System.Windows.Forms.Button();
+            this.button_contour = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputY)).BeginInit();
@@ -129,9 +130,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.inputX);
             this.panel1.Controls.Add(this.inputY);
-            this.panel1.Location = new System.Drawing.Point(898, 12);
+            this.panel1.Location = new System.Drawing.Point(888, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(225, 192);
+            this.panel1.Size = new System.Drawing.Size(251, 192);
             this.panel1.TabIndex = 5;
             // 
             // label3
@@ -151,9 +152,9 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.inputWidth);
             this.panel2.Controls.Add(this.inputHeight);
-            this.panel2.Location = new System.Drawing.Point(898, 210);
+            this.panel2.Location = new System.Drawing.Point(888, 210);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(225, 144);
+            this.panel2.Size = new System.Drawing.Size(251, 144);
             this.panel2.TabIndex = 5;
             // 
             // label5
@@ -220,9 +221,9 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(898, 360);
+            this.panel3.Location = new System.Drawing.Point(888, 360);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(225, 192);
+            this.panel3.Size = new System.Drawing.Size(251, 192);
             this.panel3.TabIndex = 5;
             // 
             // listFill
@@ -273,24 +274,36 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "Umplere";
             // 
-            // button1
+            // button_fill
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(927, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 43);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Deseneaza";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_fill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_fill.Location = new System.Drawing.Point(1024, 574);
+            this.button_fill.Name = "button_fill";
+            this.button_fill.Size = new System.Drawing.Size(115, 54);
+            this.button_fill.TabIndex = 6;
+            this.button_fill.Text = "Umple";
+            this.button_fill.UseVisualStyleBackColor = true;
+            this.button_fill.Click += new System.EventHandler(this.button_fill_Click);
+            // 
+            // button_contour
+            // 
+            this.button_contour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_contour.Location = new System.Drawing.Point(888, 574);
+            this.button_contour.Name = "button_contour";
+            this.button_contour.Size = new System.Drawing.Size(124, 54);
+            this.button_contour.TabIndex = 6;
+            this.button_contour.Text = "Contureaza";
+            this.button_contour.UseVisualStyleBackColor = true;
+            this.button_contour.Click += new System.EventHandler(this.button_contour_Click);
             // 
             // Form1
             // 
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 651);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1151, 651);
+            this.Controls.Add(this.button_contour);
+            this.Controls.Add(this.button_fill);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -331,9 +344,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_fill;
         private System.Windows.Forms.ComboBox listContour;
         private System.Windows.Forms.ComboBox listFill;
+        private System.Windows.Forms.Button button_contour;
     }
 }
 

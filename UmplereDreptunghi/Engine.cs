@@ -9,13 +9,12 @@ namespace UmplereDreptunghi
         static PictureBox _display;
         static Graphics _graphics;
         static Bitmap _bitmap;
-        static PointF _center;
         static Color _backgroundColor = Color.Beige;
         static int _resX, _resY;
         static Dreptunghi _dreptunghi;
 
         /// <summary>
-        /// Aceasta metoda este reapelata de fiecare data cand 
+        /// Aceasta metoda este apelata la incarcarea Form-ului.
         /// </summary>
         /// <param name="pictureBox"></param>
         public static void InitGraph(PictureBox pictureBox)
@@ -25,39 +24,24 @@ namespace UmplereDreptunghi
             _resY = pictureBox.Height;
             _bitmap = new Bitmap(_resX, _resY);
             _graphics = Graphics.FromImage(_bitmap);
-            _center = new PointF(_resX / 2, _resY / 2);
-            ClearGraph();
-            RefreshGraph();
-        }
 
-        static void ClearGraph()
-        {
-            _graphics.Clear(_backgroundColor);
+            FullCanvasClear();
         }
 
         /// <summary>
-        /// Metoda aceasta reface imaginea la reinitializare.
+        /// Metoda aceasta reface imaginea la reinitializare si sterge toate desenele facute.
         /// </summary>
-        static void RefreshGraph()
+        static void FullCanvasClear()
         {
+            _graphics.Clear(_backgroundColor);
             _display.Image = _bitmap;
         }
 
-        public static void Draw(Dreptunghi dreptunghi)
-        {
-            ClearGraph();
-            RefreshGraph();
-            _dreptunghi= dreptunghi;
-            dreptunghi.DesenDreptughi(_graphics);
-        }
-
-        public static void Draw()
-        {
-            ClearGraph();
-            RefreshGraph();
-            _dreptunghi.DesenDreptughi(_graphics);
-        }
-
+        /// <summary>
+        /// Aceasta metoda populeaza lista de elemente din ComboBox-urile <paramref name="contour"/> si <paramref name="fill"/> cu culori.
+        /// </summary>
+        /// <param name="contour"></param>
+        /// <param name="fill"></param>
         public static void PopulateWithColors(ComboBox contour, ComboBox fill)
         {
             KnownColor[] colors = (KnownColor[])Enum.GetValues(typeof(KnownColor));
@@ -70,6 +54,29 @@ namespace UmplereDreptunghi
 
             fill.SelectedItem = Color.Black;
             contour.SelectedItem = Color.Black;
+        }
+
+        public static void DrawContour(Dreptunghi dreptunghi)
+        {
+            _dreptunghi = new Dreptunghi(dreptunghi);
+            FullCanvasClear();
+            _dreptunghi.DesenContur(_graphics);
+        }
+
+        public static bool FillContour(Dreptunghi dreptunghi)
+        {
+            var drpt = new Dreptunghi(_dreptunghi);
+            if (!dreptunghi.Origine.Equals(drpt.Origine) || dreptunghi.Latime != drpt.Latime || dreptunghi.Lungime != drpt.Lungime || dreptunghi.CuloareExterior != drpt.CuloareExterior
+                || dreptunghi.CuloareInterior != drpt.CuloareInterior)
+            {
+                FullCanvasClear();
+                return false;
+            }
+
+            FullCanvasClear();
+            _dreptunghi.UmplereContur(_graphics);
+
+            return true;
         }
     }
 }
